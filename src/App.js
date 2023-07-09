@@ -3,26 +3,18 @@ import './App.css';
 import {Route,Routes} from "react-router-dom";
 
 import {Home} from "./pages/home/Home";
+import {CountryCategory} from "./pages/countryCategory/CountryCategory";
+import {CountryDetails} from "./pages/countryDetails/CountryDetails";
+import { CountryList } from './pages/countryList/CountryList';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/country/:countryID" element={<CountryCategory />} />
+        <Route path="/cities/:cityID" element={<CountryList />} />
+        <Route path="/destination/:ID" element={<CountryDetails />} />
       </Routes>
     </div>
   );

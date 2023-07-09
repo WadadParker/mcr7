@@ -6,11 +6,17 @@ import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter } from 'react-router-dom';
 
+import { CountryContext, CountryProvider } from './context/CountryContext';
+
+export {CountryContext};
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <CountryProvider>
+        <App />
+      </CountryProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

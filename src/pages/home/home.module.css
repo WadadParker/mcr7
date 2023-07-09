@@ -1,0 +1,12 @@
+.home-container{
+    background-color: rgb(48, 47, 47);
+    width: 100vw;
+    height: 100vh;
+    color: white;
+}
+.header {
+    color: rgb(109, 73, 239);
+}
+.list-container {
+    list-style: none;
+}

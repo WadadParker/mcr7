@@ -22,13 +22,16 @@ export const CountryProvider=({children})=>
     }
     const [state,dispatch]=useReducer(CountryReducer,initialState);
 
-    const findAllContries=(continents)=>
+    const findAllCountries=(continents,givenId)=>
     {
-
+        console.log(continents,givenId);
+        const foundCountry= continents.find(({id})=>id==givenId);
+        console.log(foundCountry);
+        return foundCountry?.countries;
     }
 
     return (
-        <CountryContext.Provider value={{state,dispatch}}>
+        <CountryContext.Provider value={{state,dispatch,findAllCountries}}>
             {children}
         </CountryContext.Provider>
     )

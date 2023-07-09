@@ -11,6 +11,8 @@
     height: 15rem;
     display: grid;
     grid-template-areas: "img";
+    margin: 1rem;
+    cursor: pointer;
 }
 .main {
     display: flex;

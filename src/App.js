@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/country/:countryID" element={<CountryCategory />} />
-        <Route path="/cities/:cityID" element={<CountryList />} />
-        <Route path="/destination/:ID" element={<CountryDetails />} />
+        <Route path="/cities/:countryID/:cityID" element={<CountryList />} />
+        <Route path="/destination/:countryID/:cityID/:ID" element={<CountryDetails />} />
       </Routes>
     </div>
   );

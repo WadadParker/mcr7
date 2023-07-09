@@ -8,18 +8,21 @@ import {Card} from "../../components/card/Card";
 export const CountryList=()=>
 {
     const {state,findAllCountries,findAllCities}=useContext(CountryContext);
-    const {allCountries,allCities}=state;
+    const {allCountinents,allCountries,allCities}=state;
+    const {countryID}=useParams();
     const {cityID}=useParams();
 
     const navigate=useNavigate();
-    useEffect(()=>findAllCities(allCountries,cityID),[]);
+    const foundCountries=(allCountinents.find(({id})=>id==countryID)).countries;
+    const foundDestinations=(foundCountries.find(({id})=>id==cityID)).destinations;
+
     return (
         <div className={styles[`home-container`]}>
             <h1 className={styles.head}>Top Destinations to visit</h1>
             
             <ul className={styles[`list-container`]}>
-            {allCities?.map(item=>(
-                <li key={item?.id} onClick={()=>navigate(`/destination/${item?.id}`)}>
+            {foundDestinations?.map(item=>(
+                <li key={item?.id} onClick={()=>navigate(`/destination/${countryID}/${cityID}/${item?.id}`)}>
                 <Card item={item} />
                 </li>
             ))}

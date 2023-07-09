@@ -8,11 +8,14 @@ import {Card} from "../../components/card/Card";
 export const CountryDetails=()=>
 {
     const {state,findDestination}=useContext(CountryContext);
-    const {allCities, destination}=state;
+    const {allCountinents,allCities}=state;
+    const {countryID}=useParams();
+    const {cityID}=useParams();
     const {ID}=useParams();
 
-    const navigate=useNavigate();
-    useEffect(()=>findDestination(allCities,ID),[]);
+    const foundCountries=(allCountinents.find(({id})=>id==countryID)).countries;
+    const foundDestinations=(foundCountries.find(({id})=>id==cityID)).destinations;
+    const destination=foundDestinations.find(({id})=>id==ID);
     return (
         <div className={styles[`home-container`]}>
             <h1 className={styles.head}>{destination?.name}</h1>

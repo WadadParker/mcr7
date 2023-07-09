@@ -12,14 +12,17 @@ export const CountryCategory=()=>
     const {countryID}=useParams();
 
     const navigate=useNavigate();
-    useEffect(()=>findAllCountries(allCountinents,countryID),[]);
+    
+    const foundCountinents=(allCountinents.find(({id})=>id==Number(countryID))).countries;
+    console.log(foundCountinents);
+
     return (
         <div className={styles[`home-container`]}>
             <h1 className={styles.head}>Top Countries for your next holiday</h1>
             
             <ul className={styles[`list-container`]}>
-            {allCountries?.map(item=>(
-                <li key={item?.id} onClick={()=>navigate(`/cities/${item?.id}`)}>
+            {foundCountinents?.map(item=>(
+                <li key={item?.id} onClick={()=>navigate(`/cities/${countryID}/${item?.id}`)}>
                 <Card item={item} />
                 </li>
             ))}
